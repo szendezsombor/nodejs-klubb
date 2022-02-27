@@ -1,30 +1,47 @@
-import {Controller, Get, HostParam, Next, Res } from '@nestjs/common';
-import {Response} from 'express';
-import {from, of} from "rxjs";
+import {Controller, Get, Logger, OnModuleInit, Scope} from "@nestjs/common";
+import {Cat} from "./cat";
+import {CatService} from "./cat.service";
+// @ts-ignore
+import {ContextIdFactory, LazyModuleLoader, ModuleRef} from "@nestjs/core";
+import {AppleService} from "../apple/apple/apple.service";
 
-@Controller('cat')
+
+@Controller('cats')
 export class CatController {
 
-    // @Get()
-    // a1(@Res() res: Response) {
-    //     res.status(200).json({});
-    //     return {};
+    logger = new Logger(CatController.name);
+
+    constructor(private lazyModuleLoader: LazyModuleLoader, private moduleRef: ModuleRef) {
+        console.log('Run started');
+        // this.run();
+    }
+
+    // async run() {
+    //     // console.log('running');
+    //     console.log((this.catService === this.moduleRef.get(CatService))); // Pontosan ugyan azt fogja vissza adni
+    //     console.log((this.catService === this.moduleRef.get(CatService, {strict: false}))); // Pontosan ugyan azt fogja vissza adni
+    //     console.log((this.catService === await this.moduleRef.resolve(CatService))); // True
+    //     const c1 = ContextIdFactory.create();
+    //     const c2 = ContextIdFactory.create();
+    //     const catServices = await Promise.all([
+    //         this.moduleRef.resolve(CatService, c1),
+    //         this.moduleRef.resolve(CatService, c2),
+    //     ]);
+    //     console.log('C: ', catServices[0] === catServices[1]); // false
     // }
 
-    @Get()
-    hello(@Next() next: Function, @HostParam() hostparam: any): any {
-        console.log('Hello')
-        // console.log(hostparam)
-        // return hostparam;
-        if (true) next();
-        else return "Hello"
-        // TODO: next() esetleg efutás darabolására?
-    }
+    // @Get()
+    // getCat(): Cat {
+    //     return this.catService.getCat();
+    // }
+    //
+    // @Get('/apple')
+    // async getCatApple() {
+    //     const {AppleModule} = await import('../apple/apple.module');
+    //     const res = await this.lazyModuleLoader.load(() => AppleModule);
+    //
+    //     return res.get(AppleService).getApple();
+    // }
 
-    @Get()
-    world() {
-        console.log('World');
-        return from(new Promise((resolve, reject) => resolve("World")));
-    }
 
 }
