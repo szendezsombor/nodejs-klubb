@@ -11,6 +11,9 @@ import { CatController } from './cat/cat.controller';
 import { VideoController } from './video/video.controller';
 import {CatService} from "./cat/cat.service";
 import { AppleModule } from './apple/apple.module';
+import { ModuleRefController } from './module-ref/module-ref.controller';
+import { ScopedService } from './module-ref/scoped/scoped.service';
+import { RegularService } from './module-ref/regular/regular.service';
 
 @Module({
   imports: [TestModule,
@@ -26,8 +29,8 @@ import { AppleModule } from './apple/apple.module';
   //     synchronize: true,
   // }),
       AppleModule],
-  controllers: [AppController, CatController, VideoController],
-  providers: [AppService, CatService],
+  controllers: [AppController, CatController, VideoController, ModuleRefController],
+  providers: [AppService, CatService, ScopedService, RegularService],
     // /alma lazyloading router: () => module
     // { provide: CatService, useFactory: (opts: any) =>  new CatService() }
     // { provide: CatService, useExisting: AppService  }

@@ -7,28 +7,13 @@ import {AppleService} from "../apple/apple/apple.service";
 
 
 @Controller('cats')
-export class CatController implements OnModuleInit {
+export class CatController {
 
     logger = new Logger(CatController.name);
 
     constructor(private lazyModuleLoader: LazyModuleLoader, private moduleRef: ModuleRef) {
         console.log('Run started');
         // this.run();
-    }
-
-    async onModuleInit() {
-        this.logger.log('Hallo');
-        // console.log('running');
-        // console.log(this.moduleRef.get(CatService) === this.moduleRef.get(CatService)); // Pontosan ugyan azt fogja vissza adni
-        // console.log((this.catService === this.moduleRef.get(CatService, {strict: false}))); // Pontosan ugyan azt fogja vissza adni
-        console.log((await this.moduleRef.resolve(CatService) === await this.moduleRef.resolve(CatService))); // True
-        const c1 = ContextIdFactory.create();
-        const c2 = ContextIdFactory.create();
-        const catServices = await Promise.all([
-            this.moduleRef.resolve(CatService),
-            this.moduleRef.resolve(CatService),
-        ]);
-        console.log('C: ', catServices[0] === catServices[1]); // false
     }
 
     // async run() {
