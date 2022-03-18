@@ -9,7 +9,7 @@ export class ModuleRefController implements OnModuleInit {
     private readonly logger: Logger = new Logger(ModuleRefController.name);
 
     constructor(
-        @Inject(REQUEST) private request: any,
+        // @Inject(REQUEST) private request: any,
         private moduleRef: ModuleRef) {
     }
 
@@ -30,8 +30,8 @@ export class ModuleRefController implements OnModuleInit {
 
     private async scopeModuleTest(): Promise<void> {
         // this.moduleRef.get nem működik, mert nem DEFAULT a Scope
-        const scopedService1 = await this.moduleRef.resolve(ScopedService);
-        const scopedService2 = await this.moduleRef.resolve(ScopedService);
+        const scopedService1: ScopedService = await this.moduleRef.resolve(ScopedService);
+        const scopedService2: ScopedService = await this.moduleRef.resolve(ScopedService);
 
         this.logger.log(`Test 1: Is scoped service the same: ${scopedService1 === scopedService2}`);
     }
@@ -39,24 +39,24 @@ export class ModuleRefController implements OnModuleInit {
     private async scopeModuleWithContextIdFactory(): Promise<void> {
         // Létrehozunk egy context-et ami olyan mintha egy module session lenne
         const contextId = ContextIdFactory.create();
-        const scopedService1 = await this.moduleRef.resolve(ScopedService, contextId);
-        const scopedService2 = await this.moduleRef.resolve(ScopedService, contextId);
+        const scopedService1: ScopedService = await this.moduleRef.resolve(ScopedService, contextId);
+        const scopedService2: ScopedService = await this.moduleRef.resolve(ScopedService, contextId);
 
         this.logger.log(`Test 2: Is scoped service the same: ${scopedService1 === scopedService2}`);
 
         // Itt már a contextId-val hozzá rendelhetjük egy adott requesthez a context-et
-        const request: any = { ...this.request };
-        this.moduleRef.registerRequestByContextId(request, contextId);
-        const contextIdFromRequest = ContextIdFactory.getByRequest(request);
-        console.log(contextId)
-
-        console.log(contextIdFromRequest, contextId);
-        this.logger.log(`Test 2.1: Context id's is matching: ${contextIdFromRequest === contextId}`);
+        // const request: any = { ...this.request };
+        // this.moduleRef.registerRequestByContextId(request, contextId);
+        // const contextIdFromRequest = ContextIdFactory.getByRequest(request);
+        // console.log(contextId)
+        //
+        // console.log(contextIdFromRequest, contextId);
+        // this.logger.log(`Test 2.1: Context id's is matching: ${contextIdFromRequest === contextId}`);
     }
 
     private regularModuleTest(): void {
-        const regularService1 = this.moduleRef.get(RegularService);
-        const regularService2 = this.moduleRef.get(RegularService);
+        const regularService1: RegularService = this.moduleRef.get(RegularService);
+        const regularService2: RegularService = this.moduleRef.get(RegularService);
 
         // A resolve-al létrehoz egyet, nem fogja a meglévőt vissza adni
         // A get-el vissza adja a meglévőt de csak ha DEFAULT Scope-ban van (singleton)

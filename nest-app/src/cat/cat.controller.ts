@@ -1,4 +1,4 @@
-import {Controller, Get, Logger, OnModuleInit, Scope} from "@nestjs/common";
+import {Controller, Get, Logger, OnModuleInit, Redirect, Scope} from "@nestjs/common";
 import {Cat} from "./cat";
 import {CatService} from "./cat.service";
 // @ts-ignore
@@ -15,6 +15,10 @@ export class CatController {
         console.log('Run started');
         // this.run();
     }
+
+    @Get()
+    @Redirect('https://example.com', 301)
+    getCat() {}
 
     // async run() {
     //     // console.log('running');
