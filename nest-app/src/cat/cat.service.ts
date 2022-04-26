@@ -1,13 +1,12 @@
-import {Injectable, Scope} from "@nestjs/common";
-import {Cat} from "./cat";
+import { Injectable, Scope } from '@nestjs/common';
+import { Cat } from './cat';
 
-@Injectable({scope: Scope.REQUEST})
+@Injectable({ scope: Scope.REQUEST })
 export class CatService {
-
-    getCat(): Cat {
-        return {
-            name: 'cirmos',
-            age: 7
-        };
-    }
+  getCat(): Cat {
+    return {
+      name: 'cirmos',
+      age: 7,
+    };
+  }
 }

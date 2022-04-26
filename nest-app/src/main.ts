@@ -1,6 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import {NextFunction} from "express";
+import { NextFunction } from 'express';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -11,6 +11,6 @@ async function bootstrap() {
 export function logger(req: Request, res: Response, next: NextFunction) {
   console.log(`Request...`);
   next();
-};
+}
 
 bootstrap();

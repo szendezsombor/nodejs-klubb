@@ -1,0 +1,9 @@
+{
+  "eslint.format.enable": true,
+  "eslint.lintTask.enable": true,
+  "eslint.run": "onSave",
+  "eslint.workingDirectories": [
+    "fake-store-api", "nest-app"
+  ],
+  "prettier.configPath": "./nest-app"
+}

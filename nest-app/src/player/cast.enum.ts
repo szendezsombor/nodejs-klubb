@@ -1,6 +1,6 @@
 export enum CastEnum {
-    MAGE = 'MAGE',
-    WARRIOR = 'WARRIOR',
-    BARD = 'BARD',
-    DRUID = 'DRUID'
+  MAGE = 'MAGE',
+  WARRIOR = 'WARRIOR',
+  BARD = 'BARD',
+  DRUID = 'DRUID',
 }
