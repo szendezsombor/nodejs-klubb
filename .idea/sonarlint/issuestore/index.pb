@@ -1,0 +1,19 @@
+
+_
+/fake-store-api/src/products/data/alma.data.json,7\7\7774a37699d37083ed163b9c49158f5472c8898a
+c
+3fake-store-api/src/products/data/products.data.json,a\7\a7acfd8228c6696abd10f6ea9c46c654e1b2ad24
+j
+:fake-store-api/src/products/interface/product.interface.ts,d\9\d902b182f003d2cfdb432f4c84a0a29f283aa6fd
+q
+Afake-store-api/src/products/interface/products-query.interface.ts,0\8\0860487d1b58be08fc681e6675c14a33bb450d59
+l
+<fake-store-api/src/products/service/products.service.spec.ts,2\6\263f09b177226d1b0fe0b80563fc535c586e7913
+g
+7fake-store-api/src/products/service/products.service.ts,6\4\647f26adbe2a68f44d45c5422f77fc8ea00afc87
+`
+0nest-app/src/error-test/error-test.controller.ts,d\0\d0e28b08f9a60997e9af5ebd64a514350600ee23
+[
++nest-app/src/error-test/exception-filter.ts,7\0\70eb46c890bfe56093a3aaccc4a10af423a77265
+P
+ nest-app/src/pipes/cat-schema.ts,0\e\0eec122e99994eb720331a29cecea6e658ec7e89

@@ -7,6 +7,7 @@ import {
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TestModule } from './test/test.module';
+import {ObjectSchema} from 'joi';
 import { PlayerModule } from './player/player.module';
 // import {TypeOrmModule} from "@nestjs/typeorm";
 // import {PlayerEntity} from "./player/entity/player.entity";
@@ -20,6 +21,7 @@ import { ModuleRefController } from './module-ref/module-ref.controller';
 import { ScopedService } from './module-ref/scoped/scoped.service';
 import { RegularService } from './module-ref/regular/regular.service';
 import { ErrorTestController } from './error-test/error-test.controller';
+import {PipeController} from "./pipes/pipe.controller";
 
 @Module({
   imports: [
@@ -43,6 +45,7 @@ import { ErrorTestController } from './error-test/error-test.controller';
     VideoController,
     ModuleRefController,
     ErrorTestController,
+    PipeController,
   ],
   providers: [AppService, CatService, ScopedService, RegularService],
   // /alma lazyloading router: () => module
